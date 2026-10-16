@@ -45,20 +45,32 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/ml-base-sgd-penalties
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import penalties from 'https://cdn.jsdelivr.net/gh/stdlib-js/ml-base-sgd-penalties@esm/index.mjs';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { enum } from 'https://cdn.jsdelivr.net/gh/stdlib-js/ml-base-sgd-penalties@esm/index.mjs';
+var penalties = require( '@stdlib/ml-base-sgd-penalties' );
 ```
 
 #### penalties()
@@ -97,14 +109,9 @@ The output array contains the following penalties:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-var contains = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-base-assert-contains' ).factory;
-import penalties from 'https://cdn.jsdelivr.net/gh/stdlib-js/ml-base-sgd-penalties@esm/index.mjs';
+```javascript
+var contains = require( '@stdlib/array-base-assert-contains' ).factory;
+var penalties = require( '@stdlib/ml-base-sgd-penalties' );
 
 var isPenalty = contains( penalties() );
 
@@ -116,10 +123,6 @@ bool = isPenalty( 'l2' );
 
 bool = isPenalty( 'beep' );
 // returns false
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -128,7 +131,72 @@ bool = isPenalty( 'beep' );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/ml/base/sgd/penalties.h"
+```
+
+#### STDLIB_ML_SGD_PENALTY
+
+An enumeration of SGD penalties with the following fields:
+
+-   **STDLIB_ML_SGD_ELASTICNET**: regularization method that linearly combines the L1 and L2 penalties of the lasso and ridge methods.
+-   **STDLIB_ML_SGD_L1**: L1 regularization (also called LASSO) leads to sparse models by adding a penalty based on the absolute value of coefficients.
+-   **STDLIB_ML_SGD_L2**: L2 regularization (also called ridge regression) encourages smaller, more evenly distributed weights by adding a penalty based on the square of the coefficients.
+-   **STDLIB_ML_SGD_NONE**: no regularization.
+
+```c
+#include "stdlib/ml/base/sgd/penalties.h"
+
+const enum STDLIB_ML_SGD_PENALTY v = STDLIB_ML_SGD_ELASTICNET;
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+### Notes
+
+-   Enumeration constants should be considered opaque values, and one should **not** rely on specific integer values.
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -155,7 +223,7 @@ bool = isPenalty( 'beep' );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
